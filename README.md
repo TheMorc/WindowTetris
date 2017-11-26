@@ -11,7 +11,7 @@ Fork of WindowTetris by Vexal. It's -+ fixed + some code is simplified(mainly co
 - *and actually nothing is new except for new controls:*
 - **ENTER, W, S, UP and DOWN arrow:** Changes rotation of WindowTetris windows
 - **A and LEFT arrow:** Moves WindowTetris windows to left
-- **D and RIGHT arrow:** Moves tWindowTetris windows to right
+- **D and RIGHT arrow:** Moves WindowTetris windows to right
 - **SPACE:** Moves WindowTetris windows fast to ground
 - **ESC:** Closes WindowTetris
 
