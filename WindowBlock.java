@@ -8,32 +8,19 @@ public class WindowBlock extends JFrame implements KeyListener{
 	String blockColor;
 	boolean listenToKey;
 	MainRunner gameWindow;
-	public WindowBlock(int x, int y, String color,boolean listen,MainRunner w)
+	@SuppressWarnings("deprecation")
+	public WindowBlock(int x, int y, Color color,boolean listen,MainRunner w)
 	{
+		System.out.println("(Tetris Window) Initialized Sucessfully! Color:" + color);
 		gameWindow = w;
 		xLoc = x;
 		yLoc = y;
+		ImageIcon icn = new ImageIcon("icon.png");
+		this.setIconImage(icn.getImage());
 		this.setLocation(x,y);
-	//	addKeyListener(this);
-		setSize(50,100);
-		blockColor = color;
+		setSize(140,140);
 		listenToKey=listen;
-		if(blockColor == "RED")
-		{
-			this.setForeground(Color.red);
-		}
-		else if(blockColor == "GREEN")
-		{
-			this.setBackground(Color.green);
-		}
-		else if(blockColor == "BLUE")
-		{
-			this.setBackground(Color.blue);
-		}
-		else if(blockColor == "PURPLE")
-		{
-			this.setBackground(Color.pink);
-		}
+		this.getContentPane().setBackground(color);
 		if(listenToKey)
 		{
 			addKeyListener(this);
@@ -41,34 +28,27 @@ public class WindowBlock extends JFrame implements KeyListener{
 		}
 		show();
 	}
-	public void paint(Graphics g)
-	{
-		
-		//this.setBackground(Color.red);
-	}
 	public void move(int direction)
 	{
 		if(direction == 1)
 		{
 			
-			setLocation(getLocation().x,getLocation().y+100);
+			setLocation(getLocation().x,getLocation().y+140);
 		}
 		else if(direction == -1)
 		{
-			setLocation(getLocation().x - 121,getLocation().y);
+			setLocation(getLocation().x - 140,getLocation().y);
 		}
 		else if(direction == 2)
 		{
-			setLocation(getLocation().x+121,getLocation().y);
+			setLocation(getLocation().x+140,getLocation().y);
 			
 		}
 		else if(direction == 10)
 		{
-			//setLocation(xLoc,yLoc);
 		}
 	}
 	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
 		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 		{
 			gameWindow.tryToMoveShape(-1);
@@ -77,11 +57,35 @@ public class WindowBlock extends JFrame implements KeyListener{
 		{
 			gameWindow.tryToMoveShape(2);
 		}
+		if(arg0.getKeyCode() == KeyEvent.VK_A)
+		{
+			gameWindow.tryToMoveShape(-1);
+		}
+		if(arg0.getKeyCode() == KeyEvent.VK_D)
+		{
+			gameWindow.tryToMoveShape(2);
+		}
+		if(arg0.getKeyCode() == KeyEvent.VK_W)
+		{
+			gameWindow.tryToMoveShape(10);
+		}
+		if(arg0.getKeyCode() == KeyEvent.VK_S)
+		{
+			gameWindow.tryToMoveShape(10);
+		}
 		if(arg0.getKeyCode() == KeyEvent.VK_SPACE)
 		{
 			gameWindow.frameSpeed = 0;
 		}
 		if(arg0.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			gameWindow.tryToMoveShape(10);
+		}
+		if(arg0.getKeyCode() == KeyEvent.VK_UP)
+		{
+			gameWindow.tryToMoveShape(10);
+		}
+		if(arg0.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			gameWindow.tryToMoveShape(10);
 		}
@@ -92,12 +96,7 @@ public class WindowBlock extends JFrame implements KeyListener{
 		
 	}
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
-
 }

@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -9,18 +10,14 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 	protected WindowBlock[][] blockArray;
 	protected int frameSpeed=50;
 	protected int frameSpeedReference=50;
-	protected int xSize = 50;
-	protected int ySize = 75;
+	protected int xSize = 140;
+	protected int ySize = 140;
 	public MainRunner()
 	{
-		System.out.println("i ran");
+		System.out.println("(Head of WindowTetris) Runned Sucessfully!");
 		gameTimer = new Timer(15,this);
 		runningBlock = new WindowBlock[4];
 		blockArray = new WindowBlock[8][10];
-		//this.setEnabled(true);
-		//this.addKeyListener(this);
-		//requestFocus();
-	//	show();
 		
 		newShape();
 		gameTimer.start();
@@ -29,42 +26,40 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 	{
 		frameSpeed = frameSpeedReference;
 		int shapeNumber = (int)(Math.random() * 4) + 1;
-	//	shapeNumber=3;
 		if(shapeNumber == 1)
 		{
-		runningBlock[1] = new WindowBlock(620,150,"RED",false,this);
-		runningBlock[2] = new WindowBlock(380,150,"RED",false,this);
-		runningBlock[3] = new WindowBlock(500,50,"RED",false,this);
-		runningBlock[0] = new WindowBlock(500,150,"RED",true,this);
+		runningBlock[1] = new WindowBlock(720,140,Color.RED,false,this);
+		runningBlock[2] = new WindowBlock(440,140,Color.RED,false,this);
+		runningBlock[3] = new WindowBlock(580,0,Color.RED,false,this);
+		runningBlock[0] = new WindowBlock(580,140,Color.RED,true,this);
 		}
 		else if(shapeNumber == 2)
 		{
-			runningBlock[1] = new WindowBlock(380,150,"GREEN",false,this);
-			runningBlock[2] = new WindowBlock(500,150,"GREEN",false,this);
-			runningBlock[3] = new WindowBlock(620,50,"GREEN",false,this);
-			runningBlock[0] = new WindowBlock(500,50,"GREEN",true,this);
+			runningBlock[1] = new WindowBlock(440,140,Color.GREEN,false,this);
+			runningBlock[2] = new WindowBlock(580,140,Color.GREEN,false,this);
+			runningBlock[3] = new WindowBlock(720,0,Color.GREEN,false,this);
+			runningBlock[0] = new WindowBlock(580,0,Color.GREEN,true,this);
 		}
 		else if(shapeNumber == 3)
 		{
-			runningBlock[1] = new WindowBlock(260,50,"BLUE",false,this);
-			runningBlock[2] = new WindowBlock(500,50,"BLUE",false,this);
-			runningBlock[3] = new WindowBlock(620,50,"BLUE",false,this);
-			runningBlock[0] = new WindowBlock(380,50,"BLUE",true,this);
+			runningBlock[1] = new WindowBlock(300,0,Color.BLUE,false,this);
+			runningBlock[2] = new WindowBlock(580,0,Color.BLUE,false,this);
+			runningBlock[3] = new WindowBlock(720,0,Color.BLUE,false,this);
+			runningBlock[0] = new WindowBlock(440,0,Color.BLUE,true,this);
 	
 		}
 		else if(shapeNumber == 4)
 		{
-			runningBlock[1] = new WindowBlock(380,50,"PURPLE",false,this);
-			runningBlock[2] = new WindowBlock(500,50,"PURPLE",false,this);
-			runningBlock[3] = new WindowBlock(380,150,"PURPLE",false,this);
-			runningBlock[0] = new WindowBlock(500,150,"PURPLE",true,this);
+			runningBlock[1] = new WindowBlock(440,0,Color.YELLOW,false,this);
+			runningBlock[2] = new WindowBlock(580,0,Color.YELLOW,false,this);
+			runningBlock[3] = new WindowBlock(440,140,Color.YELLOW,false,this);
+			runningBlock[0] = new WindowBlock(580,140,Color.YELLOW,true,this);
 	
 		}
 		
 		
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
 		if(arg0.getSource() == gameTimer)
 		{
 			nextFrame();
@@ -118,13 +113,12 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 	}
 	public void tryToMoveShape(int direction)
 	{
-		
 			boolean canMove = true;
 			boolean dontMove = false;
 			for(int a = 0; a < 4;a++)
 			{
-				int shapex = (int)runningBlock[a].getLocation().getX() /121;
-				int shapey = (int)runningBlock[a].getLocation().getY() /100;
+				int shapex = (int)runningBlock[a].getLocation().getX() /140;
+				int shapey = (int)runningBlock[a].getLocation().getY() /140;
 				
 				if(direction == 1)
 				{
@@ -149,10 +143,10 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 				}
 				else if(direction == 10)
 				{
-					int relativeX = (int)runningBlock[0].getLocation().getX() / 121 - shapex;
-					int relativeY = (int)runningBlock[0].getLocation().getY() / 100 - shapey;
+					int relativeX = (int)runningBlock[0].getLocation().getX() / 140 - shapex;
+					int relativeY = (int)runningBlock[0].getLocation().getY() / 140 - shapey;
 					
-					if(blockArray[relativeY +(int)runningBlock[0].getLocation().getX() / 121][(int)runningBlock[0].getLocation().getY() / 100-relativeY] !=null)
+					if(blockArray[relativeY +(int)runningBlock[0].getLocation().getX() / 140][(int)runningBlock[0].getLocation().getY() / 140-relativeY] !=null)
 					{
 						dontMove = true;
 					}
@@ -163,12 +157,12 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 				
 				for(int a = 0; a < 4; a++)
 				{
-					int shapex = (int)runningBlock[a].getLocation().getX() /121;
-					int shapey = (int)runningBlock[a].getLocation().getY() /100;
+					int shapex = (int)runningBlock[a].getLocation().getX() /140;
+					int shapey = (int)runningBlock[a].getLocation().getY() /140;
 				
-					int relativeX = -(int)runningBlock[0].getLocation().getX() / 121 + shapex;
-					int relativeY = -(int)runningBlock[0].getLocation().getY() / 100 + shapey;
-					runningBlock[a].setLocation(relativeY*121 + (int)runningBlock[0].getLocation().getX(),(int)runningBlock[0].getLocation().getY()  -relativeX*100);
+					int relativeX = -(int)runningBlock[0].getLocation().getX() / 140 + shapex;
+					int relativeY = -(int)runningBlock[0].getLocation().getY() / 140 + shapey;
+					runningBlock[a].setLocation(relativeY*140 + (int)runningBlock[0].getLocation().getX(),(int)runningBlock[0].getLocation().getY()  -relativeX*140);
 
 						
 				}
@@ -178,8 +172,8 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 				int yCount[] = {111,111,111,111};
 				for(int a = 0; a < 4; a++)
 				{
-					int shapex = (int)runningBlock[a].getLocation().getX() / 121;
-					int shapey = (int)runningBlock[a].getLocation().getY() / 100;
+					int shapex = (int)runningBlock[a].getLocation().getX() / 140;
+					int shapey = (int)runningBlock[a].getLocation().getY() / 140;
 					blockArray[shapex][shapey] = runningBlock[a];
 					boolean willCheckRow = true;
 				
@@ -210,14 +204,10 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 				{
 					runningBlock[a].move(direction);
 				}
-			}
-				
-		
-		
-		//setLocation((int)runningBlock[0].getLocation().getX(),(int)runningBlock[0].getLocation().getY());
 	}
+			}
 	public void keyPressed(KeyEvent arg0) {
-		System.out.println("yes i was pressed");
+		System.out.println("huh");
 		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 		{
 			tryToMoveShape(-1);
@@ -227,15 +217,9 @@ public class MainRunner extends JFrame implements KeyListener,ActionListener{
 			tryToMoveShape(2);
 		}
 		
-		// TODO Auto-generated method stub
-		
 	}
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }
