@@ -7,12 +7,13 @@ Fork of WindowTetris by Vexal. It's -+ fixed + some code is simplified(mainly co
 - **Changed size of WindowTetris windows to be squared**
 
 **New features from old WindowTetris:**
-- *actually nothing is new except for new controls:*
-- **ENTER, W, S, UP and DOWN arrow:** Changes rotation of tetris windows
-- **A and LEFT arrow:** Moves tetris windows to left
-- **D and RIGHT arrow:** Moves tetris windows to right
-- **SPACE:** Moves tetris windows extremely fast to ground
-- **ESC:** Closes Window Tetris
+- **removed icon from WindowTetris windows**
+- *and actually nothing is new except for new controls:*
+- **ENTER, W, S, UP and DOWN arrow:** Changes rotation of WindowTetris windows
+- **A and LEFT arrow:** Moves WindowTetris windows to left
+- **D and RIGHT arrow:** Moves tWindowTetris windows to right
+- **SPACE:** Moves WindowTetris windows fast to ground
+- **ESC:** Closes WindowTetris
 
 
 **Credits:**
