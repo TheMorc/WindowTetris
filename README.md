@@ -1,4 +1,5 @@
 <h1 align="center">WindowTetris</h1>
+<p align="center"><a href="https://discord.gg/Gneap49" align="center"><img src="https://discordapp.com/api/guilds/363965764987912192/embed.png?style=banner4"/></a>
 
 Fork of WindowTetris by Vexal. It's -+ fixed + some code is simplified(mainly color).
 
