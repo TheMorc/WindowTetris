@@ -16,6 +16,10 @@ Fork of WindowTetris by Vexal. It's -+ fixed + some code is simplified(mainly co
 - **SPACE:** Moves WindowTetris windows fast to ground
 - **ESC:** Closes WindowTetris
 
+**WindowTetris tested on:**
+- [MacOS High Sierra](https://youtu.be/aMALFYBfuFE)
+- [Windows 8.1](https://youtu.be/HJiU5jG3a74)
+
 
 **Credits:**
 - Big Thanks to **[Vexal](https://github.com/Vexal)** for creating the **[WindowTetris](https://github.com/Vexal/WindowTetris)**!!!
